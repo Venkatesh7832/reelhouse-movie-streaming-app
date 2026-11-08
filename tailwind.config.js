@@ -1,0 +1,1 @@
+export default { content: ['./index.html','./src/**/*.{ts,tsx}'], theme: { extend: { colors: { bg:'#08090D', surface:'#11131A', surface2:'#191C26', accent:'#8B5CF6', muted:'#A1A1AA' }, fontFamily: { display:['"Fraunces"','Georgia','serif'], sans:['"Instrument Sans"','system-ui','sans-serif'] } } } }

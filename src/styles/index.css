@@ -1,0 +1,5 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-bg text-white font-sans antialiased overflow-x-hidden}
+.glass{@apply bg-white/5 backdrop-blur-md border border-white/10}
+.btn{@apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent}
+.no-sb{scrollbar-width:none}.no-sb::-webkit-scrollbar{display:none}
