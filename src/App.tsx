@@ -15,8 +15,22 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import WatchHistory from './pages/WatchHistory'
 import { Footer } from './components/Footer'
-const qc = new QueryClient({ defaultOptions: { queries: { staleTime: 60_000, retry: 1, refetchOnWindowFocus: false } } })
-function Protected({ children }: { children: ReactNode }) { const u = useAuth((s) => s.user); const loc = useLocation(); return u ? <>{children}</> : <Navigate to="/login" state={{ from: loc.pathname }} replace /> }
+
+
+const qc = new QueryClient({ 
+  defaultOptions: { 
+    queries: { 
+      staleTime: 60_000, retry: 1, refetchOnWindowFocus: false 
+    } 
+  } 
+})
+
+function Protected({ children }: { children: ReactNode }) {
+   const u = useAuth((s) => s.user); 
+   const loc = useLocation(); 
+
+   return u ? <>{children}</> : <Navigate to="/login" state={{ from: loc.pathname }} replace /> 
+  }
 
 function ScrollTop() {
   const { pathname } = useLocation();
@@ -32,7 +46,13 @@ function ScrollTop() {
   return null;
 }
 
-const NotFound = () => <div className="grid h-screen place-items-center text-center"><div><h1 className="font-display text-5xl">Page not found</h1><Link to="/" className="mt-4 inline-block text-accent">Back to home</Link></div></div>
+const NotFound = () => 
+  <div className="grid h-screen place-items-center text-center">
+    <div>
+      <h1 className="font-display text-5xl">Page not found</h1><Link to="/" className="mt-4 inline-block text-accent">Back to home</Link>
+    </div>
+  </div>
+
 export default function App() {
   return <QueryClientProvider client={qc}><MotionConfig reducedMotion="user"><BrowserRouter><ScrollTop /><Navbar /><main>
     <Routes><Route path="/" element={<Home />} /><Route path="/movies" element={<Browse type="movie" />} /><Route path="/tv" element={<Browse type="tv" />} />
